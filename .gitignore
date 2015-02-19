@@ -1,3 +1,9 @@
+# Use 'npm install' to grab required packages
 node_modules/*
+
+*.log
+
 .idea/
-bin/
+
+#Automatically generated
+public/stylesheets/style.css
