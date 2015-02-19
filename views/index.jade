@@ -3,3 +3,10 @@ extends layout
 block content
     h3 Welcome
     p Welcome to HmwrkTrkr, an application for tracking your assignments throughout your classes!
+
+    br
+
+    if req.isAuthenticated()
+        p To get started, click on one of the nav links up top!
+    else
+        a(href='/auth/register/') To get started, create an account!

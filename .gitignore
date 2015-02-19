@@ -6,4 +6,4 @@ node_modules/*
 .idea/
 
 #Automatically generated
-public/stylesheets/style.css
+*.css
