@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    h2 Please Authenticate
+    em Don't have an account?
+        a(href="/auth/register") &nbsp; Click here to register!
+    br
+
+    if message
+        div.alert.alert-danger
+            p #{message}
+
+    br
+
+    form(method='post')
+        div.form-group
+            label(for='username') Username:
+            input(type='text', name='username')#username.form-control
+        div.form-group
+            label(for='password') Password:
+            input(type='password', name='password')#password.form-control
+        br
+        button(type='submit').btn.btn-success Login!

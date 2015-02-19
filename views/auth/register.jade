@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+    h3 Registration
+    br
+    if error
+        div(role='alert').alert.alert-danger
+            strong Error!
+                span &nbsp; #{error}
+
+    form(action='', method='post')
+        div.form-group
+            label(for='username') Username
+            input(type='text', name='username', placeholder='Pick a Username')#username.form-control
+        div.form-group
+            label(for='password') Password
+            input(type='password', name='password', placeholder='Enter a Password')#password.form-control
+        div.form-group
+            label(for='confirm') Password Confirmation
+            input(type='password', name='confirmation', placeholder='Enter it again just to be sure!')#confirm.form-control
+        div.form-group
+            button(type='submit').btn.btn-success Submit!
+
+
+
+

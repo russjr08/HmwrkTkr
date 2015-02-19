@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    if title
+        title HmwrkTrkr  | #{title}
+    else
+        title HmwrkTrkr
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    script(type='javascript' src='js/bootstrap.js')
+
+    body
+        div.navbar.navbar-default
+            div.container-fluid
+                div.navbar-header
+                    button(type='button', data-toggle='collapse' data-target='#bs-example-navbar-collapse-1').navbar-toggle.collapsed
+                        span.sr-only Toggle Navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a(href='/').navbar-brand HmwrkTrkr
+                div.collapse.navbar-collapse
+                    ul.nav.navbar-nav.navbar-right
+                        if req && req.user && req.isAuthenticated()
+                            li
+                                p.navbar-text Signed in as #{req.user.username}
+                            li
+                                p.navbar-btn
+                                    a(href='/auth/logout', role='button').btn.btn-default Sign Out
+                        else
+                            li
+                                p.navbar-text Not Signed In
+                            li
+                                p.navbar-btn
+                                    a(href='/auth/login', role='button').btn.btn-default Sign In
+        div.container
+            block content
