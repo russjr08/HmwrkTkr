@@ -40,17 +40,15 @@ router.post('/register', function(req, res, next){
     }
 });
 
-// TODO: Remember Me / cookie expiration
-// http://stackoverflow.com/questions/15609232/how-to-add-remember-me-to-my-app-with-passport
-router.get('/login', function(req, res, next){
-   res.render('auth/login');
+router.get('/login', function(req, res){
+   res.render('auth/login', { title: 'Login', req: req });
 });
 
 router.post('/login', passport.authenticate('local', { successRedirect: '/',
     failureRedirect: '/auth/login',
     failureFlash: 'Failed to verify credentials!' }));
 
-router.get('/logout', function(req, res, next){
+router.get('/logout', function(req, res){
     if(req.isAuthenticated()) {
        req.logout();
     }

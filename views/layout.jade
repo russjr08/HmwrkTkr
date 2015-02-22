@@ -32,12 +32,12 @@ html
                                 p.navbar-text Signed in as #{req.user.username}
                             li
                                 p.navbar-btn
-                                    a(href='/auth/logout', role='button').btn.btn-default Sign Out
+                                    a(href='/auth/logout', role='button').btn.btn-danger Sign Out
                         else
                             li
                                 p.navbar-text Not Signed In
                             li
                                 p.navbar-btn
-                                    a(href='/auth/login', role='button').btn.btn-default Sign In
+                                    a(href='/auth/login', role='button').btn.btn-primary Sign In
         div.container
             block content
