@@ -23,9 +23,9 @@ html
                     ul.nav.navbar-nav.navbar-left
                         if req && req.isAuthenticated()
                             li
-                                a(href='#').navbar-link Classes
+                                a(href='/manage/classes/').navbar-link Classes
                             li
-                                a(href='#').navbar-link Assignments
+                                a(href='/manage/assignments/').navbar-link Assignments
                     ul.nav.navbar-nav.navbar-right
                         if req && req.user && req.isAuthenticated()
                             li

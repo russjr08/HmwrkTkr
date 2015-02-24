@@ -101,8 +101,12 @@ app.use(function(req, res, next){
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var auth = require('./routes/auth');
+var classes = require('./routes/classes');
+var assignments = require('./routes/assignments');
 
 app.use('/', routes);
+app.use('/', classes);
+app.use('/', assignments);
 app.use('/auth', auth);
 app.use('/users', users);
 
