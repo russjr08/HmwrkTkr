@@ -1,3 +1,23 @@
 a {
   color: #00b7ff;
 }
+.navbar-custom {
+  background-color: #009688;
+  color: #fff;
+  border-radius: 0;
+}
+.navbar-custom .navbar-nav > li > a {
+  color: #fff;
+}
+.navbar-custom .navbar-brand {
+  color: #eee;
+}
+.navbar-custom .navbar-nav > .active > a,
+.navbar-nav > .active > a:hover,
+.navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: transparent;
+}
+.navbar-custom-text {
+  color: #fff !important;
+}
