@@ -108,7 +108,7 @@ app.use('/', routes);
 app.use('/', classes);
 app.use('/', assignments);
 app.use('/auth', auth);
-app.use('/users', users);
+//app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -127,7 +127,8 @@ if (app.get('env') === 'development') {
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
-            error: err
+            error: err,
+            req: req
         });
     });
 }
@@ -138,7 +139,8 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
-        error: {}
+        error: {},
+        req: req
     });
 });
 

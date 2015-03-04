@@ -5,12 +5,20 @@ block content
         h2 Classes
         p You have registered the following classes with this app.
 
+
+    div.pull-right
+        a(href='/classes/manage/add').btn.btn-primary Create New Class
+
+    br
+
     table.table.table-striped.table-responsive
         thead
             tr
                 th Class
                 th Instructor
         tbody
-            tr
-                td Anatomy
-                td Mr. Test
+            each Class in classes
+                tr
+                    td
+                        a(href='/classes/detail/#{Class._id}') #{Class.name}
+                    td #{Class.teacher}

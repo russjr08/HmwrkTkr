@@ -20,6 +20,7 @@ module.exports = function() {
     function Assignment() {
         this.name = null;
         this.details = null;
+        this.completed = false;
     }
 
     return { Class: Class };

@@ -24,12 +24,12 @@ html
                         span.icon-bar
                     a(href='/').navbar-brand HmwrkTrkr
                 div.collapse.navbar-collapse
-                    ul.nav.navbar-nav.navbar-right
+                    ul.nav.navbar-nav.navbar-left
                         if req && req.isAuthenticated()
                             li
-                                a(href='/manage/classes/').navbar-link Classes
+                                a(href='/classes/manage/').navbar-link Classes
                             li
-                                a(href='/manage/assignments/').navbar-link Assignments
+                                a(href='/assignments/manage/').navbar-link Assignments
                     ul.nav.navbar-nav.navbar-right
                         if req && req.user && req.isAuthenticated()
                             li
