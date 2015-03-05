@@ -11,10 +11,16 @@ block content
     form(method='post')
         div.form-group
             label(for='name') Name
-            input(type='text', name='name', autocomplete='off')#name.form-control
+            if editing
+                input(type='text', name='name', autocomplete='off', value='#{Class.name}')#name.form-control
+            else
+                input(type='text', name='name', autocomplete='off')#name.form-control
         div.form-group
             label(for='teacher') Teacher
-            input(type='text', name='teacher', autocomplete='off')#teacher.form-control
+            if editing
+                input(type='text', name='teacher', autocomplete='off', value='#{Class.teacher}')#teacher.form-control
+            else
+                input(type='text', name='teacher', autocomplete='off')#teacher.form-control
         div.form-group
             label(for='color') Color
             select(name='color').form-control

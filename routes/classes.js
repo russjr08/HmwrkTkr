@@ -43,6 +43,49 @@ router.post('/classes/manage/add', ensureAuthenticated, function(req, res) {
 
 });
 
+router.get('/classes/manage/edit/:id', ensureAuthenticated, function(req, res) {
+    if (req.params.id.length != 24) {
+        res.sendStatus(400);
+        return;
+    }
+    var classes = req.db.get('classes');
+    classes.findOne({_id: req.params.id}, function(err, Class) {
+
+        if(err || Class === null || Class.owner != req.user.username) {
+            res.status(404);
+            console.log("Couldn't find class: " + req.params.id);
+            return next();
+        }
+
+        res.render('classes/add', { title: 'Editing Class', Class: Class, req: req, editing: true });
+    });
+});
+
+router.post('/classes/manage/edit/:id', ensureAuthenticated, function(req, res) {
+    if (req.params.id.length != 24) {
+        res.sendStatus(400);
+        return;
+    }
+    var classes = req.db.get('classes');
+    classes.findOne({_id: req.params.id}, function(err, Class) {
+
+        if(err || Class === null || Class.owner != req.user.username) {
+            res.status(404);
+            console.log("Couldn't find class: " + req.params.id);
+            return next();
+        }
+
+        Class.name = req.body.name;
+        Class.teacher = req.body.teacher;
+        Class.color = req.body.color;
+
+        classes.updateById(Class._id, Class, function(err, newClass) {
+            return res.redirect('/classes/manage');
+        });
+
+    });
+});
+
 router.get('/classes/detail/:id', ensureAuthenticated, function(req, res, next) {
     if (req.params.id.length != 24) {
         res.sendStatus(400);
