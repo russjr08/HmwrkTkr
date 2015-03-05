@@ -13,7 +13,7 @@ module.exports = function() {
         this.color = null;
 
         this.save = function(db) {
-            db.insert({name: this.name, teacher: this.teacher, owner: this.owner, color: this.color});
+            db.insert({name: this.name, teacher: this.teacher, owner: this.owner, color: this.color, assignments: []});
         }
     }
 

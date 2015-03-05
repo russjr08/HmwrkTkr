@@ -3,4 +3,26 @@ extends ../layout
 block content
     div.panel.panel-info
         div.panel-heading
-            h2 #{Class.name}
+            h4.inline-block #{Class.name}
+            a(href='/classes/manage/edit/#{Class._id}').btn.btn-primary.pull-right.inline-block Edit
+        div.panel-body
+            dl.dl-horizontal
+                dt Name
+                dd #{Class.name}
+                dt Instructor
+                dd #{Class.teacher}
+
+        table.table.table-striped.table-responsive
+            thead
+                tr
+                    th Name
+                    th Detail
+                    th Completion
+            tbody
+                each assignment in Class.assignments
+                    tr
+                        td #{assignment.name}
+                        td #{assignment.detail}
+                        td #{assignment.completed}
+                        td
+                            a(href='/assignments/delete/#{assignment._id}/').btn.btn-danger Remove

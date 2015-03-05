@@ -28,8 +28,6 @@ html
                         if req && req.isAuthenticated()
                             li
                                 a(href='/classes/manage/').navbar-link Classes
-                            li
-                                a(href='/assignments/manage/').navbar-link Assignments
                     ul.nav.navbar-nav.navbar-right
                         if req && req.user && req.isAuthenticated()
                             li

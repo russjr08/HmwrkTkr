@@ -7,3 +7,5 @@ node_modules/*
 
 #Automatically generated
 public/stylesheets/style.css
+
+*.css
