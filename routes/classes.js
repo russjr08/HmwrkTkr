@@ -5,8 +5,6 @@ var Models = require('../models/models')();
 
 function ensureAuthenticated(req, res, next) {
 
-    // do any checks you want to in here
-
     if (req.isAuthenticated()) {
         return next();
     }
@@ -28,6 +26,23 @@ router.get('/classes/manage/add', ensureAuthenticated, function(req, res) {
    res.render('classes/add', { title: 'Add a Class', req: req });
 });
 
+router.post('/classes/manage/add', ensureAuthenticated, function(req, res) {
+    var classDB = req.db.get('classes');
+
+    var Class = new Models.Class();
+
+    // TODO: Validation
+
+    Class.name = req.body.name;
+    Class.teacher = req.body.teacher;
+    Class.color = req.body.color;
+    Class.owner = req.user.username;
+    Class.save(classDB);
+
+    res.redirect('/classes/manage');
+
+});
+
 router.get('/classes/detail/:id', ensureAuthenticated, function(req, res, next) {
     if (req.params.id.length != 24) {
         res.sendStatus(400);
@@ -38,12 +53,11 @@ router.get('/classes/detail/:id', ensureAuthenticated, function(req, res, next) 
 
        if(err || Class === null || Class.owner != req.user.username) {
            res.status(404);
-           next();
            console.log("Couldn't find class: " + req.params.id);
-           return;
+           return next();
        }
 
-       res.render('classes/detail', { title: Class.name, Class: Class});
+       res.render('classes/detail', { title: Class.name, Class: Class, req: req });
    });
 });
 

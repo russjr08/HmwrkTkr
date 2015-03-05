@@ -7,7 +7,7 @@ block content
 
 
     div.pull-right
-        a(href='/classes/manage/add').btn.btn-primary Create New Class
+        a(href='/classes/manage/add/').btn.btn-primary Create New Class
 
     br
 
@@ -18,7 +18,7 @@ block content
                 th Instructor
         tbody
             each Class in classes
-                tr
+                tr(class="#{Class.color}")
                     td
-                        a(href='/classes/detail/#{Class._id}') #{Class.name}
+                        a(href='/classes/detail/#{Class._id}/') #{Class.name}
                     td #{Class.teacher}

@@ -1,17 +1,30 @@
 extends ../layout
 
 block content
-    h3 Registering a New Class...
+    if editing
+        h3 Editing a Class...
+    else
+        h3 Registering a New Class...
 
     br
 
     form(method='post')
         div.form-group
             label(for='name') Name
-            input(type='text', name='name')#name.form-control
+            input(type='text', name='name', autocomplete='off')#name.form-control
         div.form-group
             label(for='teacher') Teacher
-            input(type='text', name='teacher')#teacher.form-control
+            input(type='text', name='teacher', autocomplete='off')#teacher.form-control
+        div.form-group
+            label(for='color') Color
+            select(name='color').form-control
+                option(value='danger') Red
+                option(value='success') Green
+                option(value='warning') Yellow
 
             br
-            button(type='submit').btn.btn-success Create!
+
+            if editing
+                button(type='submit').btn.btn-primary Submit Changes
+            else
+                button(type='submit').btn.btn-success Create!

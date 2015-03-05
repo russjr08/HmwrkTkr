@@ -12,8 +12,8 @@ module.exports = function() {
 
         this.color = null;
 
-        this.save = function() {
-            //console.log("YOU SAVED!");
+        this.save = function(db) {
+            db.insert({name: this.name, teacher: this.teacher, owner: this.owner, color: this.color});
         }
     }
 
