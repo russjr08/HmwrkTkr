@@ -25,6 +25,7 @@ block content
                     tr
                         td #{assignment.name}
                         td #{assignment.detail}
-                        td #{assignment.completed}
                         td
-                            a(href='/assignments/delete/#{assignment._id}/').btn.btn-danger Remove
+                            input(type='checkbox', disabled, value=assignment.completed)
+                        td
+                            a(href='/assignments/delete/#{assignment._id}/').btn.btn-danger.pull-right Remove

@@ -23,7 +23,7 @@ router.get('/classes/manage', ensureAuthenticated, function(req, res, next) {
 });
 
 router.get('/classes/manage/add', ensureAuthenticated, function(req, res) {
-   res.render('classes/add', { title: 'Add a Class', req: req });
+   res.render('classes/add', { title: 'Add Class', req: req });
 });
 
 router.post('/classes/manage/add', ensureAuthenticated, function(req, res) {

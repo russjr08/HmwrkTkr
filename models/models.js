@@ -23,6 +23,6 @@ module.exports = function() {
         this.completed = false;
     }
 
-    return { Class: Class };
+    return { Class: Class, Assignment: Assignment };
 
 };
