@@ -5,13 +5,13 @@ block content
         div.panel-heading
             h4.inline-block #{Class.name}
             a(href='/classes/manage/edit/#{Class._id}').btn.btn-primary.pull-right.inline-block Edit
+            a(href='/assignments/manage/add/').btn.btn-success.pull-right.inline-block.small-margin-right Add New Assignment
         div.panel-body
             dl.dl-horizontal.inline-block
                 dt Name
                 dd #{Class.name}
                 dt Instructor
                 dd #{Class.teacher}
-            a(href='/assignments/manage/add/').btn.btn-success.pull-right.inline-block Add New Assignment
 
 
         table.table.table-striped.table-responsive
