@@ -15,7 +15,7 @@ var crypto = require('crypto');
 
 var stylus = require('stylus');
 
-var dbHost = process.env.DBHOST || '192.168.1.39'; // Obviously, replace this with your MongoDB host.
+var dbHost = process.env.DBHOST || '127.0.0.1'; // Obviously, replace this with your MongoDB host.
 var db = require('monk')(dbHost + ':27017/hmwrktrkr'); // Change port as needed.
 
 var passport = require('passport');
